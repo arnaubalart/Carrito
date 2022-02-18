@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Energeticas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnergeticasController extends Controller
 {
@@ -15,6 +16,11 @@ class EnergeticasController extends Controller
     public function index()
     {
         //
+    }
+
+    public function mostrar(Request $request){
+        $lista = DB::table('tbl_producto')->get();
+        return view('mostrar', compact('lista'));
     }
 
     /**

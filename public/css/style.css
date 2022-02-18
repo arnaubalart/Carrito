@@ -1,0 +1,22 @@
+body {
+    padding: 2%;
+}
+
+.header {
+    align-content: center;
+    display: block;
+    display: flex;
+    padding-bottom: 2%;
+}
+
+.filtro {
+    width: 70%;
+}
+
+.crear {
+    width: 15%;
+}
+
+.carrito {
+    width: 15%;
+}
