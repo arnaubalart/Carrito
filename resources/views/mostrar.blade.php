@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/style.css">
-    <title>Hoteles</title>
+    <script defer src="css/fontawesome/js/all.js"></script>
+    <title></title>
 </head>
-<body>
+<body class="p-4">
     <div class="header">
         <div class="filtro">
             @csrf
@@ -19,12 +20,12 @@
         </div>
         <div class="crear">
             <form action="{{url('crear')}}" method="GET">
-                <button class= "btn btn-secondary" type="submit" name="Crear" value="Crear">Crear</button>
+                <button class="crear-btn" type="submit" name="Crear" value="Crear">Crear</button>
             </form>
         </div>
         <div class="carrito">
             <form action="" method="GET">
-                <button class= "btn btn-secondary" type="submit" name="carrito" value="carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</button>
+                <button class="carrito-btn" type="submit" name="carrito" value="carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</button>
             </form>
         </div>
     </div>
@@ -47,13 +48,13 @@
                     <td>{{$producto->descripcion_producto}}</td>
                     <td>{{$producto->precio_producto}}</td>
                     <td>{{$producto->foto_producto}}</td>
-                    <td><form action="{{url('modificarHotel/'.$producto->id_producto)}}" method="GET">
-                        <button class= "btn btn-secondary" type="submit" value="Edit">Edit</button>
+                    <td><form action="{{url('modificar/'.$producto->id_producto)}}" method="GET">
+                        <button class= "btn btn-secondary" type="submit" value="Edit">Modificar</button>
                     </form></td>
-                    <td><form action="{{url('eliminarHotel/'.$producto->id_producto)}}" method="POST">
+                    <td><form action="{{url('eliminar/'.$producto->id_producto)}}" method="POST">
                         @csrf
                         {{method_field('DELETE')}}
-                        <button class= "btn btn-danger" type="submit" value="Delete">Delete</button>
+                        <button class= "btn btn-danger" type="submit" value="Delete">Borrar</button>
                     </form></td>
                 </tr>
             @endforeach

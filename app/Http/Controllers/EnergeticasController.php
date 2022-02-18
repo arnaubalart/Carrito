@@ -23,6 +23,30 @@ class EnergeticasController extends Controller
         return view('mostrar', compact('lista'));
     }
 
+    public function crear(){
+        return view('crear');
+    }
+    public function crearPost(Request $request){
+        $datos = $request->except('_token');
+        DB::table('tbl_producto')->insertGetId(["marca_producto"=>$datos['marca_producto'],"nombre_producto"=>$datos['nombre_producto'],"descripcion_producto"=>$datos['descripcion_producto'],"precio_producto"=>$datos['precio_producto'],"foto_producto"=>$datos['foto_producto']]);
+        return redirect('mostrar');
+    }
+
+    public function eliminar($id){
+        $lista=DB::table('tbl_producto')->where('id_producto','=',$id)->delete();
+        return redirect('mostrar');
+    }
+
+    public function modificar($id){
+        $lista=DB::table('tbl_producto')->where('id_producto','=',$id)->first();
+        return view('modificar',compact('lista'));
+    }
+    public function modificarPut(Request $request){
+        $datos=$request->except('_token','_method');
+        DB::table('tbl_producto')->where('id_producto','=',$datos['id_producto'])->update($datos);
+        return redirect('mostrar');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
