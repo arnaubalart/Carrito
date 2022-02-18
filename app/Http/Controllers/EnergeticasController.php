@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Energeticas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnergeticasController extends Controller
 {
@@ -15,6 +16,35 @@ class EnergeticasController extends Controller
     public function index()
     {
         //
+    }
+
+    public function mostrar(Request $request){
+        $lista = DB::table('tbl_producto')->get();
+        return view('mostrar', compact('lista'));
+    }
+
+    public function crear(){
+        return view('crear');
+    }
+    public function crearPost(Request $request){
+        $datos = $request->except('_token');
+        DB::table('tbl_producto')->insertGetId(["marca_producto"=>$datos['marca_producto'],"nombre_producto"=>$datos['nombre_producto'],"descripcion_producto"=>$datos['descripcion_producto'],"precio_producto"=>$datos['precio_producto'],"foto_producto"=>$datos['foto_producto']]);
+        return redirect('mostrar');
+    }
+
+    public function eliminar($id){
+        $lista=DB::table('tbl_producto')->where('id_producto','=',$id)->delete();
+        return redirect('mostrar');
+    }
+
+    public function modificar($id){
+        $lista=DB::table('tbl_producto')->where('id_producto','=',$id)->first();
+        return view('modificar',compact('lista'));
+    }
+    public function modificarPut(Request $request){
+        $datos=$request->except('_token','_method');
+        DB::table('tbl_producto')->where('id_producto','=',$datos['id_producto'])->update($datos);
+        return redirect('mostrar');
     }
 
     /**

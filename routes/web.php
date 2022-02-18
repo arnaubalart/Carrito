@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EnergeticasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/mostrar',[EnergeticasController::class,'mostrar']);
+Route::get('/crear',[EnergeticasController::class,'crear']);
+Route::post('/crear',[EnergeticasController::class,'crearPost']);
+Route::delete('/eliminar/{id}',[EnergeticasController::class,'eliminar']);
+Route::get('/modificar/{id}',[EnergeticasController::class,'modificar']);
+Route::put('/modificar',[EnergeticasController::class,'modificarPut']);
+
+

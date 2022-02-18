@@ -1,0 +1,53 @@
+.header {
+    align-content: center;
+    display: block;
+    display: flex;
+    padding-bottom: 2%;
+}
+
+.filtro {
+    float: left;
+    width: 80%;
+}
+
+.filtro-input {
+    width: 100%;
+}
+
+.crear {
+    width: 10%;
+    padding-left: 2%;
+}
+
+.crear-btn {
+    width: 100%;
+    background-color: grey;
+    border-radius: 3px;
+    color: white;
+    border-width: 0px;
+    padding: 3%;
+    transition: 0.2s;
+}
+
+.crear-btn:hover {
+    background-color: rgb(160, 160, 160);
+}
+
+.carrito {
+    width: 10%;
+    padding-left: 2%;
+}
+
+.carrito-btn {
+    width: 100%;
+    background-color: grey;
+    border-radius: 3px;
+    color: white;
+    border-width: 0px;
+    padding: 3%;
+    transition: 0.2s;
+}
+
+.carrito-btn:hover {
+    background-color: rgb(160, 160, 160);
+}
