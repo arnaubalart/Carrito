@@ -22,6 +22,10 @@ class EnergeticasController extends Controller
         $lista = DB::table('tbl_producto')->get();
         return view('mostrar', compact('lista'));
     }
+    public function mostrarUser(Request $request){
+        $listaUser = DB::table('tbl_usuario')->get();
+        return view('mostrarUser', compact('listaUser'));   
+    }
 
     public function crear(){
         return view('crear');
@@ -31,10 +35,22 @@ class EnergeticasController extends Controller
         DB::table('tbl_producto')->insertGetId(["marca_producto"=>$datos['marca_producto'],"nombre_producto"=>$datos['nombre_producto'],"descripcion_producto"=>$datos['descripcion_producto'],"precio_producto"=>$datos['precio_producto'],"foto_producto"=>$datos['foto_producto']]);
         return redirect('mostrar');
     }
+    public function crearUser(){
+        return view('crearUser');
+    }
+    public function crearPostUser(Request $request){
+        $datos = $request->except('_token');
+        DB::table('tbl_usuario')->insertGetId(["nombre_usuario"=>$datos['nombre_usuario'],"correo_usuario"=>$datos['correo_usuario'],"tipo_usuario"=>$datos['tipo_usuario'],"contraseña_usuario"=>$datos['contraseña_usuario']]);
+        return redirect('mostrarUser');
+    }
 
     public function eliminar($id){
         $lista=DB::table('tbl_producto')->where('id_producto','=',$id)->delete();
         return redirect('mostrar');
+    }
+    public function eliminarUser($id){
+        $listaUser=DB::table('tbl_usuario')->where('id_usuario','=',$id)->delete();
+        return redirect('mostrarUser');
     }
 
     public function modificar($id){
@@ -45,6 +61,15 @@ class EnergeticasController extends Controller
         $datos=$request->except('_token','_method');
         DB::table('tbl_producto')->where('id_producto','=',$datos['id_producto'])->update($datos);
         return redirect('mostrar');
+    }
+    public function modificarUser($id){
+        $listaUser=DB::table('tbl_usuario')->where('id_usuario','=',$id)->first();
+        return view('modificarUser',compact('listaUser'));
+    }
+    public function modificarPutUser(Request $request){
+        $datos=$request->except('_token','_method');
+        DB::table('tbl_usuario')->where('id_usuario','=',$datos['id_usuario'])->update($datos);
+        return redirect('mostrarUser');
     }
 
     /**
