@@ -16,6 +16,7 @@ use App\Http\Controllers\EnergeticasController;
 
 Route::get('/mostrar',[EnergeticasController::class,'mostrar']);
 Route::get('/mostrarUser',[EnergeticasController::class,'mostrarUser']);
+Route::get('/mostrartienda',[EnergeticasController::class,'mostrartienda']);
 Route::get('/crear',[EnergeticasController::class,'crear']);
 Route::post('/crear',[EnergeticasController::class,'crearPost']);
 Route::get('/crearUser',[EnergeticasController::class,'crearUser']);
@@ -26,5 +27,8 @@ Route::get('/modificar/{id}',[EnergeticasController::class,'modificar']);
 Route::put('/modificar',[EnergeticasController::class,'modificarPut']);
 Route::get('/modificarUser/{id}',[EnergeticasController::class,'modificarUser']);
 Route::put('/modificarUser',[EnergeticasController::class,'modificarPutUser']);
+Route::get('/login',[EnergeticasController::class,'login']);
+Route::post('/login',[EnergeticasController::class,'login_post']);
+Route::get('/logout',[EnergeticasController::class,'logout']);
 
 

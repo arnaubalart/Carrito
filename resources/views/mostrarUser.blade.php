@@ -10,25 +10,26 @@
     <title></title>
 </head>
 <body class="p-4">
-     <div class="header">
-        {{-- <div class="filtro">
-            @csrf
-                {{method_field('GET')}}
-            <form action="{{url('mostrarUser')}}" method="POST">
-                <input class="filtro-input" type="text" name="filtro">
+    <div class="header">
+        <div class="filtro">
+            <h1>USUARIOS</h1>
+        </div>
+        <div class="crear">
+            <form action="{{url('mostrar')}}" method="GET">
+                <button class="cambiar-btn" type="submit">Productos</button>
             </form>
-        </div> --}}
+        </div>
         <div class="crear">
             <form action="{{url('crearUser')}}" method="GET">
                 <button class="crear-btn" type="submit" name="Crear" value="Crear">Crear</button>
             </form>
         </div>
-        {{-- <div class="carrito">
-            <form action="" method="GET">
-                <button class="carrito-btn" type="submit" name="carrito" value="carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</button>
+        <div class="crear">
+            <form action="{{url('logout')}}" method="GET">
+                <button class="logout-btn" type="submit" name="logout" value="logout"></i>Logout</button>
             </form>
-        </div> --}}
-    </div> 
+        </div>
+    </div>
     <div>
         <table class="table">
             <tr>
@@ -41,8 +42,8 @@
             @foreach($listaUser as $usuario)
                 <tr>
                     <td>{{$usuario->id_usuario}}</td>
-                    <td>{{$usuario->nombre_usuario}}</td>
-                    <td><b>{{$usuario->correo_usuario}}</b></td>
+                    <td><b>{{$usuario->nombre_usuario}}</b></td>
+                    <td>{{$usuario->correo_usuario}}</td>
                     <td>{{$usuario->tipo_usuario}}</td>
                     <td>{{$usuario->contraseña_usuario}}</td>
                     <td><form action="{{url('modificarUser/'.$usuario->id_usuario)}}" method="GET">

@@ -7,11 +7,7 @@
 
 .filtro {
     float: left;
-    width: 80%;
-}
-
-.filtro-input {
-    width: 100%;
+    width: 70%;
 }
 
 .crear {
@@ -25,29 +21,75 @@
     border-radius: 3px;
     color: white;
     border-width: 0px;
-    padding: 3%;
+    padding: 5%;
     transition: 0.2s;
+}
+
+.titulo {
+    float: left;
+    width: 90%;
 }
 
 .crear-btn:hover {
     background-color: rgb(160, 160, 160);
 }
 
-.carrito {
-    width: 10%;
-    padding-left: 2%;
+.logout-btn {
+    width: 100%;
+    background-color: rgb(136, 60, 60);
+    border-radius: 3px;
+    color: white;
+    border-width: 0px;
+    padding: 5%;
+    transition: 0.2s;
 }
 
-.carrito-btn {
+.logout-btn:hover {
+    background-color: rgb(194, 87, 87);
+}
+
+.cambiar-btn {
+    width: 100%;
+    background-color: rgb(55, 150, 68);
+    border-radius: 3px;
+    color: white;
+    border-width: 0px;
+    padding: 5%;
+    transition: 0.2s;
+}
+
+.cambiar-btn:hover {
+    background-color: rgb(68, 192, 85);
+}
+
+.logout-btn {
+    width: 100%;
+    background-color: rgb(136, 60, 60);
+    border-radius: 3px;
+    color: white;
+    border-width: 0px;
+    padding: 5%;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: rgb(194, 87, 87);
+}
+
+.login-div {
+    width: 10%;
+}
+
+.login-btn {
     width: 100%;
     background-color: grey;
     border-radius: 3px;
     color: white;
     border-width: 0px;
-    padding: 3%;
+    padding: 5%;
     transition: 0.2s;
 }
 
-.carrito-btn:hover {
+.login-btn:hover {
     background-color: rgb(160, 160, 160);
 }
