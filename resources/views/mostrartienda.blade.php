@@ -12,17 +12,12 @@
 </head>
 <body class="p-4">
     <div class="header">
-        <div class="filtro">
-            <h1>PRODUCTOS</h1>
+        <div class="titulo">
+            <h1><b>ENERGUIA, </b>tu tienda de bebidas energeticas</h1>
         </div>
         <div class="crear">
-            <form action="{{url('mostrarUser')}}" method="GET">
-                <button class="cambiar-btn" type="submit">Usuarios</button>
-            </form>
-        </div>
-        <div class="crear">
-            <form action="{{url('crear')}}" method="GET">
-                <button class="crear-btn" type="submit" name="Crear" value="Crear">Crear</button>
+            <form action="" method="GET">
+                <button class="crear-btn" type="submit" name="carrito" value="carrito">Carrito</button>
             </form>
         </div>
         <div class="crear">
@@ -50,14 +45,11 @@
                     <td>{{$producto->descripcion_producto}}</td>
                     <td>{{$producto->precio_producto}}</td>
                     <td>{{$producto->foto_producto}}</td>
-                    <td><form action="{{url('modificar/'.$producto->id_producto)}}" method="GET">
-                        <button class= "btn btn-secondary" type="submit" value="Edit">Modificar</button>
-                    </form></td>
-                    <td><form action="{{url('eliminar/'.$producto->id_producto)}}" method="POST">
-                        @csrf
-                        {{method_field('DELETE')}}
-                        <button class= "btn btn-danger" type="submit" value="Delete">Borrar</button>
-                    </form></td>
+                    <td>
+                        <form action="{{url('carrito/'.$producto->id_producto)}}" method="GET">
+                            <button class= "btn btn-secondary" type="submit" value="añadir">Añadir a la cesta</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
